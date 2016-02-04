@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Started</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+</head>
+<body>
+	<div id="count"></div>
+	<script type="text/babel">
+		var Timer = React.createClass({
+			getInitialState() {
+				return{secondsElapsed: 0};  // 값 설정 0
+			},
+			tick() {
+				this.setState({secondsElapsed: this.state.secondsElapsed + 1});  // 값 +1 2
+			},
+			componentDidMount() {
+				this.interval = setInterval(this.tick, 1000); // tick 실행 3
+			},
+			componentWillUnmount() {  // 있어도 그만 없어도 그만
+				clearInterval(this.interval);
+			},
+			render() {
+				return (
+					<div>Seconds Elapsed: {this.state.secondsElapsed}</div>  // 값 실행 1
+				);
+			}
+		});
+		ReactDOM.render(<Timer />,document.getElementById("count"));
+	</script>
+	<h1>질문</h1>
+	<ol>
+		<li>여기서 componentWillUnmount 의 의미는?? (삭제해도 실행이 됨)</li>
+		<li>흐름도의 설명 부탁 드립니다.</li>
+	</ol>
+</body>
+</html>
