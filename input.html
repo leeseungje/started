@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input text</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <script src="https://facebook.github.io/react/js/marked.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    var MarkdownEditor = React.createClass({
+        getInitialState() {
+            return {value: 'Type some *markdown* here!'};
+        },
+        handleChange() {
+            this.setState({value: this.refs.textarea.value});
+        },
+        rawMarkup() {
+            return { __html: marked(this.state.value, {sanitize: true}) }; // marked js 가 필요함
+        },
+        render() {
+            return (
+                <div className="MarkdownEditor">
+                    <h3>Input</h3>
+                    <textarea onChange={this.handleChange} ref="textarea" defaultValue={this.state.value} />
+                    <h3>Output</h3>
+                    <div className="content" dangerouslySetInnerHTML={this.rawMarkup()} />
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<MarkdownEditor />, document.getElementById("container"));
+</script>
+<h1>질문</h1>
+<ol>
+    <li>Todo 이후로 아무것도 모르겠음.....ㅠㅠ</li>
+    <li>흐름도 설명 부탁 드립니다.</li>
+</ol>
+</body>
+</html>
