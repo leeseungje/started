@@ -13,7 +13,7 @@
     var TodoList = React.createClass({
         render() {
             var createItem = function(item) {
-                return <li key={item.id}>{item.text}</li>;
+                return <li key={item.id}>{item.text} <span></span></li>;
             };
             return <ul>{this.props.items.map(createItem)}</ul>;
         }

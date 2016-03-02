@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script> <!-- 태그까지 같이 나옴 -->
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+	var data = [
+		{author: "Pete Hunt", text: "댓글입니다"},
+		{author: "Jordan Walke", text: "또 다른 댓글입니다"}
+	];
+	var CommentList = React.createClass({
+		render() {
+			return (
+				<div className="commentList">
+					<Comment author="leeseungje">댓글입니다.</Comment>
+					<Comment author="Jordan Walke">또 다른 댓글입니다.</Comment>
+				</div>
+			);
+		}
+	});
+
+	var CommentForm = React.createClass({
+		render() {
+			return(
+				<div className="commentForm">
+					안녕! 난 댓글 폼이야.
+				</div>
+			);
+		}
+	});
+
+	var CommentBox = React.createClass({
+		render() {
+			return(
+				<div className="commentBox">
+					<h1>댓글</h1>
+					<CommentList data={this.props.data} />
+					<CommentForm />
+				</div>
+			);
+		}
+	});
+
+	var Comment = React.createClass({
+		render() {
+			var rawMarkup = marked(this.props.children.toString(), {sanitize: true})
+			return(
+				<div className="comment">
+					<h2 className="commentAuthor">
+						{this.props.author}
+					</h2>
+					<span dangerouslySetInnerHTML={{__html: rawMarkup}} />
+				</div>
+			)
+		}
+	});
+
+	ReactDOM.render(<CommentBox data={data} />,document.getElementById("container"))
+
+    
+</script>
+<h1>질문</h1>
+<ol>
+    <li>아무것도 모르겠음......ㅠㅠ</li>
+    <li>흐름도 설명 부탁 드립니다.</li>
+</ol>
+</body>
+</html>
