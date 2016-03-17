@@ -59,7 +59,13 @@ input[type="button"], input[type="submit"], input[type="reset"] { line-height: n
   text-overflow:ellipsis;
   white-space: nowrap;
 }
-
+@mixin displayInline	{ display: inline-block; *zoom: 1; *display: inline; }
+@mixin font_zero	{ font-size: 0; text-indent: 120000px; }
 @mixin Arial{font-family: 'Arial', '맑은 고딕', 'Malgun Gothic', sans-serif;}
-@mixin Margungothic {font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;}
+@mixin tahoma($px) {font: $px 'tahoma', 'Arial', sans-serif;}
 @mixin border-radius($radius) { -webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius; }
+@mixin mainh2title($width)	{
+  width: $width; height: 35px; margin: 0 auto; font-size: 22px; color: #fff; line-height: 35px; text-align: center; background: url(/images/main/bg_tit_right.gif) no-repeat right top;
+  span	{ display: block; height: 35px; background: url(/images/main/bg_tit_left.gif) no-repeat left top; }
+}
+@mixin diminishment	{ overflow: hidden; text-overflow:ellipsis;white-space:nowrap;word-wrap:normal; }
