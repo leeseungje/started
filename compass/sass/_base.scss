@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    letter-spacing: -1px;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul, li {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    caption	{ display: none; }
+}
+a	{ text-decoration: none; }
+label	{ cursor: pointer; }
+
+input[type="button"], input[type="submit"], input[type="reset"] { line-height: normal !important; }
+.fix:after { content: ""; height: 0; display: block; visibility: hidden; clear: both; }
+.blind {position:absolute; overflow:hidden; width:0; height:0; line-height:0; text-indent:-9999px}
+*, *:before, *:after {box-sizing: content-box;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;}
+
+/* mixin */
+@mixin ellipsis ($width){
+  display:inline-block;
+  width:$width;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+@mixin displayInline	{ display: inline-block; *zoom: 1; *display: inline; }
+@mixin font_zero	{ font-size: 0; text-indent: 120000px; }
+@mixin Arial{font-family: 'Arial', '맑은 고딕', 'Malgun Gothic', sans-serif;}
+@mixin tahoma($px) {font: $px 'tahoma', 'Arial', sans-serif;}
+@mixin border-radius($radius) { -webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius; }
+@mixin mainh2title($width)	{ 
+	width: $width; height: 35px; margin: 0 auto; font-size: 20px; color: #fff; line-height: 35px; text-align: center; font-weight: bold; background: url(/images/main/bg_tit_right.gif) no-repeat right top; 
+	span	{ display: block; height: 35px; background: url(/images/main/bg_tit_left.gif) no-repeat left top; }
+}
+@mixin comment	{ overflow: hidden; text-overflow:ellipsis;white-space:nowrap;word-wrap:normal; }
+@mixin css3_ani	{ transition: .2s ease-out; }

@@ -1,0 +1,154 @@
+@charset "utf-8";
+@import "compass/css3";
+@import "base.scss";
+@import "compass/utilities";
+
+.transition-example {
+  width: 40px;
+  height: 40px;
+  background: red;
+  margin: 20px;
+}
+ 
+#width {
+  @include transition-property(width);
+}
+ 
+#width:hover {
+  width: 80px;
+}
+ 
+#width-duration {
+  @include transition-property(width);
+  @include transition-duration(2s);
+}
+ 
+#width-duration:hover {
+  width: 80px;
+}
+ 
+#width-duration-easein {
+  @include transition-property(width);
+  @include transition-duration(2s);
+  @include transition-timing-function(ease-in);
+}
+ 
+#width-duration-easein:hover {
+  width: 80px;
+}
+ 
+#width-delay {
+  @include transition-property(width);
+  @include transition-delay(2s);
+}
+ 
+#width-delay:hover {
+  width: 80px;
+}
+
+.example {
+  padding: 2em;
+  div {
+    background-color: blue;
+    border: 10px solid rgba(255, 0, 0, 0.5);
+    color: white;
+    @include text-shadow(darken(blue, 50%) 2px 2px);
+    padding: 3px;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  #padding-box {
+    @include background-clip(padding-box);
+  }
+  #border-box {
+    @include background-clip(border-box);
+  }
+}
+
+#demo {
+  @include clearfix;
+}
+ 
+.border-radius-example {
+  width: 125px;
+  height: 125px;
+  background: red;
+  margin: 20px;
+  float: left;
+  padding: 5px;
+}
+ 
+#border-radius {
+  @include border-radius(25px);
+}
+ 
+#border-radius-top-left {
+  @include border-top-left-radius(25px);
+}
+ 
+#border-radius-top-right {
+  @include border-top-right-radius(25px);
+}
+ 
+#border-radius-bottom-left {
+  @include border-bottom-left-radius(25px);
+}
+ 
+#border-radius-bottom-right {
+  @include border-bottom-right-radius(25px);
+}
+ 
+#border-radius-top {
+  @include border-top-radius(25px);
+}
+ 
+#border-radius-bottom {
+  @include border-bottom-radius(25px);
+}
+ 
+#border-radius-left {
+  @include border-left-radius(25px);
+}
+ 
+#border-radius-right {
+  @include border-right-radius(25px);
+}
+ 
+#border-radius-combo {
+  @include border-corner-radius(top, left, 40px);
+  @include border-corner-radius(top, right, 5px);
+  @include border-corner-radius(bottom, left, 15px);
+  @include border-corner-radius(bottom, right, 30px);
+}
+
+nav {
+	@for $i from 0 through 10 {
+		& ul {
+			& li {
+				padding-left: 20px*$i;
+			}
+		}
+	}
+}
+
+
+#container	{
+	$type: monster;
+	p {
+		@if $type == ocean {
+			color: blue;
+		} @else if $type == matador {
+			color: red;
+		} @else if $type == monster {
+			color: green;
+		} @else {
+			color: black;
+		}
+	}
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
