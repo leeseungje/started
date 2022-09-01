@@ -1,4 +1,12 @@
-# started
+<div align="center">
+
+An enterprise-class UI design language and React UI library.
+
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+
+[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
+
+[![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -26,3 +34,5 @@
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
 [renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
 [renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
+
+</div>
